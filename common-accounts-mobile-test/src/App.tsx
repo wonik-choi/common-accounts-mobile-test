@@ -1,6 +1,4 @@
 import styles from './App.module.css';
-
-import BaseButton from './components/button/BaseButton';
 import CommonAccountsSignup from './components/templates/commonAccountsSignup/CommonAccountsSignup';
 
 function App() {
