@@ -2,9 +2,10 @@ export class WindowPopupHandler {
   popup: Window | null;
   baseUrl: URL;
 
+  // test: http://localhost:5173
   constructor() {
     this.popup = null;
-    this.baseUrl = new URL(`https://dev.accounts.susimdal.com`);
+    this.baseUrl = new URL(`http://localhost:5173`);
   }
 
   setCommonAccountsUrl = (
@@ -43,15 +44,16 @@ export class WindowPopupHandler {
     if (event.origin + '/' !== this.baseUrl.toString()) {
       return;
     }
+    const parseData = JSON.parse(event.data);
 
-    if (event.data === 'popup-close') {
-      this.popup?.close();
-      window.removeEventListener('message', this.popupMessageListener);
-      return;
+    if (parseData.userDto) {
+      const parsedUserDto = parseData;
+      console.log(parsedUserDto);
     }
 
-    const parsedUserDto = JSON.parse(event.data);
-    console.log(parsedUserDto);
+    this.popup?.close();
+    window.removeEventListener('message', this.popupMessageListener);
+    alert(parseData);
   };
 
   openSignupPopup = (
