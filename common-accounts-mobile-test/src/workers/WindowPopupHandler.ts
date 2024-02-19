@@ -16,7 +16,7 @@ export class WindowPopupHandler {
     let newBaseUrl = new URL(path, this.baseUrl);
 
     newBaseUrl.searchParams.set('step', '0');
-    newBaseUrl.searchParams.set('serviceId', serviceId);
+    newBaseUrl.searchParams.set('service', serviceId);
 
     if (['integrate', 'update-term'].includes(path) && email) {
       newBaseUrl.searchParams.set('email', email);
@@ -62,7 +62,6 @@ export class WindowPopupHandler {
   ) => {
     const popupParams = this.setPopupFullSizeParams();
     const commonAccountsSignupUrl = this.setCommonAccountsUrl(path, serviceId, email, accessToken).toString();
-
     this.popup = window.open(commonAccountsSignupUrl, 'blueSignup', popupParams);
     window.addEventListener('message', this.popupMessageListener);
   };

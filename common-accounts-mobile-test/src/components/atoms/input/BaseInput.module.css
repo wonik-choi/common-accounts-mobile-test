@@ -1,0 +1,104 @@
+.inputContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+    border-color: #000;
+  }
+  &.error {
+    border-color: #ff0000;
+  }
+  &.success {
+    border-color: #00ff00;
+  }
+  &.warning {
+    border-color: #ffcc00;
+  }
+  &.disabled {
+    background-color: #f2f2f2;
+  }
+  &.readonly {
+    background-color: #f2f2f2;
+  }
+  &.small {
+    padding: 5px;
+  }
+  &.medium {
+    padding: 10px;
+  }
+  &.large {
+    padding: 15px;
+  }
+  &.full {
+    width: 100%;
+  }
+  &.half {
+    width: 50%;
+  }
+  &.third {
+    width: 33.3333%;
+  }
+  &.two-thirds {
+    width: 66.6666%;
+  }
+  &.quarter {
+    width: 25%;
+  }
+  &.three-quarters {
+    width: 75%;
+  }
+  &.one-fifth {
+    width: 20%;
+  }
+  &.two-fifths {
+    width: 40%;
+  }
+  &.three-fifths {
+    width: 60%;
+  }
+  &.four-fifths {
+    width: 80%;
+  }
+  &.one-sixth {
+    width: 16.6666%;
+  }
+  &.five-sixths {
+    width: 83.3333%;
+  }
+  &.one-tenth {
+    width: 10%;
+  }
+  &.two-tenths {
+    width: 20%;
+  }
+  &.three-tenths {
+    width: 30%;
+  }
+  &.four-tenths {
+    width: 40%;
+  }
+  &.five-tenths {
+    width: 50%;
+  }
+  &.six-tenths {
+    width: 60%;
+  }
+  &.seven-tenths {
+    width: 70%;
+  }
+}
