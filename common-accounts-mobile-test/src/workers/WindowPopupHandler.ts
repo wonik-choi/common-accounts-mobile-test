@@ -5,7 +5,7 @@ export class WindowPopupHandler {
   // test: http://localhost:5173
   constructor() {
     this.popup = null;
-    this.baseUrl = new URL(`http://localhost:5173`);
+    this.baseUrl = new URL(`https://dev.accounts.susimdal.com/`);
   }
 
   setCommonAccountsUrl = (
