@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-import styles from './CommonAccountsUpdateTerm.module.css';
+import styles from './CommonAccountsConnectService.module.css';
 
 import BaseButton from '../../atoms/button/BaseButton';
 import BaseInput from '../../atoms/input/BaseInput';
@@ -9,11 +9,11 @@ import BaseInput from '../../atoms/input/BaseInput';
 import { WindowPopupHandler } from '../../../workers/WindowPopupHandler';
 import { serviceIdObj } from '../resource/index';
 
-type CommonAccountsUpdateTermProps = {
+type CommonAccountsConnectServiceProps = {
   serviceId: string;
 };
 
-const CommonAccountsUpdateTerm = ({ serviceId }: CommonAccountsUpdateTermProps) => {
+const CommonAccountsConnectService = ({ serviceId }: CommonAccountsConnectServiceProps) => {
   const [info, setInfo] = useState({
     email: '',
   });
@@ -21,7 +21,7 @@ const CommonAccountsUpdateTerm = ({ serviceId }: CommonAccountsUpdateTermProps) 
   const windowPopupHandler = new WindowPopupHandler();
 
   const openIntegratePopup = (serviceId: string, email: string) => () => {
-    windowPopupHandler.openSignupPopup('update-term', serviceIdObj[serviceId as 'RED' | 'BLUE'], email);
+    windowPopupHandler.openSignupPopup('connect-service', serviceIdObj[serviceId as 'RED' | 'BLUE'], email);
   };
 
   const handleInputInfoChange = (props: any) => {
@@ -31,12 +31,12 @@ const CommonAccountsUpdateTerm = ({ serviceId }: CommonAccountsUpdateTermProps) 
   return (
     <>
       <div className={styles.container}>
-        <h3>추가 약관동의</h3>
+        <h3>서비스 추가하기</h3>
         <BaseInput label="email" placeholder="이메일을 입력하세요" type="text" onChange={handleInputInfoChange} />
-        <BaseButton title="추가약관동의" type="button" onClick={openIntegratePopup(serviceId, info.email)} />
+        <BaseButton title="서비스 연동" type="button" onClick={openIntegratePopup(serviceId, info.email)} />
       </div>
     </>
   );
 };
 
-export default CommonAccountsUpdateTerm;
+export default CommonAccountsConnectService;

@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #000;
+  cursor: default;
+}
+
+.radio {
+  appearance: none;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  transition: all 0.1s ease-in-out;
+}
+
+.radio::after {
+  content: '';
+  display: block;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  margin: 2px;
+}
+
+.radio:checked::after {
+  background-color: #ff6971;
+}
+
+.radio:focus {
+  outline: 2px solid #ff6971;
+}

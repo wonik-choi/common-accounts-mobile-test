@@ -5,21 +5,20 @@ export class WindowPopupHandler {
   // test: http://localhost:5173
   constructor() {
     this.popup = null;
-    this.baseUrl = new URL(`https://dev.accounts.susimdal.com/`);
+    this.baseUrl = new URL(` https://dev.accounts.susimdal.com/`);
   }
 
   setCommonAccountsUrl = (
-    path: 'sign-up' | 'edit' | 'find' | 'integrate' | 'update-term',
+    path: 'sign-up' | 'edit' | 'find' | 'migrate' | 'update-term' | 'connect-service',
     serviceId: string,
     email?: string,
     accessToken?: string
   ) => {
     let newBaseUrl = new URL(path, this.baseUrl);
 
-    newBaseUrl.searchParams.set('step', '0');
     newBaseUrl.searchParams.set('service', serviceId);
 
-    if (['integrate', 'update-term'].includes(path) && email) {
+    if (['migrate', 'update-term', 'connect-service'].includes(path) && email) {
       newBaseUrl.searchParams.set('email', email);
     }
 
@@ -41,6 +40,7 @@ export class WindowPopupHandler {
   };
 
   popupMessageListener = (event: MessageEvent) => {
+    console.log(event.origin, this.baseUrl.toString());
     if (event.origin + '/' !== this.baseUrl.toString()) {
       return;
     }
@@ -53,11 +53,10 @@ export class WindowPopupHandler {
 
     this.popup?.close();
     window.removeEventListener('message', this.popupMessageListener);
-    alert(parseData);
   };
 
   openSignupPopup = (
-    path: 'sign-up' | 'edit' | 'find' | 'integrate' | 'update-term',
+    path: 'sign-up' | 'edit' | 'find' | 'migrate' | 'update-term' | 'connect-service',
     serviceId: string,
     email?: string,
     accessToken?: string
