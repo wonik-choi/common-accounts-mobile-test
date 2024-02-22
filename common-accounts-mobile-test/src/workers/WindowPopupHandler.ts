@@ -5,7 +5,7 @@ export class WindowPopupHandler {
   // test: http://localhost:5173
   constructor() {
     this.popup = null;
-    this.baseUrl = new URL(` https://dev.accounts.susimdal.com/`);
+    this.baseUrl = new URL(` http://localhost:5173/`);
   }
 
   setCommonAccountsUrl = (
@@ -45,6 +45,7 @@ export class WindowPopupHandler {
       return;
     }
     const parseData = JSON.parse(event.data);
+    console.log(parseData);
 
     if (parseData.userDto) {
       const parsedUserDto = parseData;
