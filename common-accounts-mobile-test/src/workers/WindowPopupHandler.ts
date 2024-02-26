@@ -3,9 +3,10 @@ export class WindowPopupHandler {
   baseUrl: URL;
 
   // test: http://localhost:5173
+  // real: http://dev.accounts.susimdal.com
   constructor() {
     this.popup = null;
-    this.baseUrl = new URL(` http://dev.accounts.susimdal.com/`);
+    this.baseUrl = new URL(`http://dev.accounts.susimdal.com/`);
   }
 
   setCommonAccountsUrl = (
